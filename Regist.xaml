@@ -1,0 +1,18 @@
+﻿<Window x:Class="Ракин_Курсовая.Regist"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ракин_Курсовая"
+        mc:Ignorable="d"
+        Title="Регистрация" Height="450" Width="450">
+    <Grid Background="BlanchedAlmond">
+        <TextBox MaxLength="20" x:Name="login" HorizontalAlignment="Left" Height="35" Margin="105,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210"/>
+        <TextBox MaxLength="20" x:Name="password" HorizontalAlignment="Left" Height="35" Margin="105,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210"/>
+        <Button  Background="LightBlue" x:Name="bCreate" Content="Регистрация" HorizontalAlignment="Left" Height="35" Margin="108,264,0,0" VerticalAlignment="Top" Width="210" Click="bCreate_Click"/>
+        <Button  Background="LightBlue" x:Name="bBack" Content="Назад" HorizontalAlignment="Left" Height="35" Margin="319,311,0,0" VerticalAlignment="Top" Width="84" Click="bBack_Click"/>
+        <Label Content="Придумайте логин" HorizontalAlignment="Left" Height="27" Margin="105,42,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Придумайте пароль" HorizontalAlignment="Left" Height="27" Margin="105,109,0,0" VerticalAlignment="Top" Width="180"/>
+
+    </Grid>
+</Window>

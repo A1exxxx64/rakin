@@ -1,0 +1,29 @@
+﻿<Window x:Class="Ракин_Курсовая.AdminDevises"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ракин_Курсовая"
+        mc:Ignorable="d"
+        Title="Оборудование" Height="450" Width="800">
+    <Grid Background="BlanchedAlmond">
+        <ListBox x:Name="DevisesList" HorizontalAlignment="Left" Height="424" Margin="10,10,0,0" VerticalAlignment="Top" Width="203" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DevisesList_SelectionChanged"/>
+        <Label Content="Кол-во записей" HorizontalAlignment="Left" Height="24" Margin="688,20,0,0" VerticalAlignment="Top" Width="102"/>
+        <Label Content="Название" HorizontalAlignment="Left" Height="33" Margin="233,11,0,0" VerticalAlignment="Top" Width="67"/>
+        <Label Content="Описание" HorizontalAlignment="Left" Height="33" Margin="282,63,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="Доступное &#xD;&#xA;кол-во" HorizontalAlignment="Left" Height="53" Margin="398,305,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label Content="Фото" HorizontalAlignment="Left" Height="33" Margin="398,363,0,0" VerticalAlignment="Top" Width="58"/>
+        <TextBox IsEnabled="False" x:Name="tbZapisi" HorizontalAlignment="Left" Height="28" Margin="688,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
+        <TextBox MaxLength="30" x:Name="tbName" HorizontalAlignment="Left" Height="28" Margin="319,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="102" />
+        <TextBox MaxLength="255" x:Name="tbInfo" HorizontalAlignment="Left" Height="63" Margin="226,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
+        <TextBox MaxLength="3" x:Name="tbquantity" HorizontalAlignment="Left" Height="28" Margin="484,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="tbPhoto" IsEnabled="False" HorizontalAlignment="Left" Height="28" Margin="484,365,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="102"/>
+        <Image x:Name="imageBox" HorizontalAlignment="Left" Height="188" Margin="461,8,0,0" VerticalAlignment="Top" Width="199" Source="{Binding ImgPath}"/>
+        <Button x:Name="bPhoto" Content="Добавить фото" HorizontalAlignment="Left" Height="32" Margin="521,217,0,0" VerticalAlignment="Top" Width="89" Click="bPhoto_Click"/>
+        <Button  Background="LightGreen" x:Name="bSave" Content="Сохранить" HorizontalAlignment="Left" Height="32" Margin="233,259,0,0" VerticalAlignment="Top" Width="89" Click="bSave_Click"/>
+        <Button  Background="LightPink" Content="Удалить" x:Name="bDelete" HorizontalAlignment="Left" Height="32" Margin="233,314,0,0" VerticalAlignment="Top" Width="89" Click="bDelete_Click"/>
+        <Button  Background="LightBlue" Content="Очистить" x:Name="bClear" HorizontalAlignment="Left" Height="32" Margin="233,372,0,0" VerticalAlignment="Top" Width="89" Click="bClear_Click"/>
+        <Button  Background="LightBlue" Content="Назад" x:Name="bBack" HorizontalAlignment="Left" Height="32" Margin="672,377,0,0" VerticalAlignment="Top" Width="89" Click="bBack_Click"/>
+
+    </Grid>
+</Window>

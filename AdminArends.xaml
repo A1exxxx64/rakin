@@ -1,0 +1,29 @@
+﻿<Window x:Class="Ракин_Курсовая.AdminArends"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ракин_Курсовая"
+        mc:Ignorable="d"
+        Title="Аренды" Height="450" Width="550">
+    <Grid Background="BlanchedAlmond">
+        <ListBox x:Name="ArendsList" HorizontalAlignment="Left" Height="424" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ArendsList_SelectionChanged"/>
+        <ComboBox  x:Name="cbClient" HorizontalAlignment="Left" Height="31" Margin="376,22,0,0" VerticalAlignment="Top" Width="127"/>
+        <ComboBox x:Name="cbDevise" HorizontalAlignment="Left" Height="31" Margin="376,75,0,0" VerticalAlignment="Top" Width="127" />
+        <DatePicker x:Name="dpStart" HorizontalAlignment="Left" Height="35" Margin="374,132,0,0" VerticalAlignment="Top" Width="114"/>
+        <DatePicker x:Name="dpEnd" HorizontalAlignment="Left" Height="35" Margin="374,182,0,0" VerticalAlignment="Top" Width="114"/>
+        <TextBox x:Name="tbProfit" IsEnabled="False" HorizontalAlignment="Left" Height="29" Margin="374,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112" />
+        <TextBox IsEnabled="False" x:Name="tbZapisi" HorizontalAlignment="Left" Height="25" Margin="431,377,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="57"/>
+        <Button Background="LightPink" x:Name="bDelete" Content="Удалить" HorizontalAlignment="Left" Height="29" Margin="229,333,0,0" VerticalAlignment="Top" Width="105" Click="bDelete_Click"/>
+        <Button  Background="LightBlue" Content="Очистить" x:Name="bClear" HorizontalAlignment="Left" Height="29" Margin="229,375,0,0" VerticalAlignment="Top" Width="105" Click="bClear_Click"/>
+        <Button Background="LightGreen" Content="Сохранить" x:Name="bSave" HorizontalAlignment="Left" Height="29" Margin="229,288,0,0" VerticalAlignment="Top" Width="106" Click="bSave_Click"/>
+        <Label Content="Клиент" HorizontalAlignment="Left" Height="31" Margin="239,22,0,0" VerticalAlignment="Top" Width="112"/>
+        <Label Content="Оборудование" HorizontalAlignment="Left" Height="31" Margin="239,75,0,0" VerticalAlignment="Top" Width="112"/>
+        <Label Content="Дата начала" HorizontalAlignment="Left" Height="31" Margin="239,132,0,0" VerticalAlignment="Top" Width="112"/>
+        <Label Content="Дата конца" HorizontalAlignment="Left" Height="31" Margin="239,184,0,0" VerticalAlignment="Top" Width="112"/>
+        <Label Content="Выручка" HorizontalAlignment="Left" Height="31" Margin="239,230,0,0" VerticalAlignment="Top" Width="112"/>
+        <Label Content="Кол-во записей" HorizontalAlignment="Left" Height="26" Margin="393,336,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button  Background="LightBlue"  Content="Назад" x:Name="bBack" HorizontalAlignment="Left" Height="30" Margin="376,287,0,0" VerticalAlignment="Top" Width="105" Click="bBack_Click"/>
+
+    </Grid>
+</Window>

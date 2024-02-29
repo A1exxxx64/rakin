@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище РакинБазаДанныхАрендаModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Arends">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_client" Type="int" Nullable="false" />
+          <Property Name="ID_devise" Type="int" Nullable="false" />
+          <Property Name="Date_start" Type="date" Nullable="false" />
+          <Property Name="Date_end" Type="date" Nullable="false" />
+          <Property Name="Profit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Client_Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Client_Contakt" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Devises">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Devise_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Devise_info" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Available_quantity" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_arend" Type="int" Nullable="false" />
+          <Property Name="Date_Pay" Type="date" Nullable="false" />
+          <Property Name="Summ" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Arends__Id_clien__3A81B327">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Arends" Type="Self.Arends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arends">
+              <PropertyRef Name="Id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Arends__ID_devis__3B75D760">
+          <End Role="Devises" Type="Self.Devises" Multiplicity="1" />
+          <End Role="Arends" Type="Self.Arends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arends">
+              <PropertyRef Name="ID_devise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pays__ID_arend__3E52440B">
+          <End Role="Arends" Type="Self.Arends" Multiplicity="1" />
+          <End Role="Pays" Type="Self.Pays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arends">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pays">
+              <PropertyRef Name="ID_arend" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище РакинБазаДанныхАрендаModelContainer">
+          <EntitySet Name="Arends" EntityType="Self.Arends" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Devises" EntityType="Self.Devises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pays" EntityType="Self.Pays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Arends__Id_clien__3A81B327" Association="Self.FK__Arends__Id_clien__3A81B327">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Arends" EntitySet="Arends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Arends__ID_devis__3B75D760" Association="Self.FK__Arends__ID_devis__3B75D760">
+            <End Role="Devises" EntitySet="Devises" />
+            <End Role="Arends" EntitySet="Arends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pays__ID_arend__3E52440B" Association="Self.FK__Pays__ID_arend__3E52440B">
+            <End Role="Arends" EntitySet="Arends" />
+            <End Role="Pays" EntitySet="Pays" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="РакинБазаДанныхАрендаModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Arends">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_client" Type="Int32" Nullable="false" />
+          <Property Name="ID_devise" Type="Int32" Nullable="false" />
+          <Property Name="Date_start" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Date_end" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Profit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Arends__Id_clien__3A81B327" FromRole="Arends" ToRole="Clients" />
+          <NavigationProperty Name="Devises" Relationship="Self.FK__Arends__ID_devis__3B75D760" FromRole="Arends" ToRole="Devises" />
+          <NavigationProperty Name="Pays" Relationship="Self.FK__Pays__ID_arend__3E52440B" FromRole="Arends" ToRole="Pays" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Client_Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Client_Contakt" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arends" Relationship="Self.FK__Arends__Id_clien__3A81B327" FromRole="Clients" ToRole="Arends" />
+        </EntityType>
+        <EntityType Name="Devises">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Devise_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Devise_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Available_quantity" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Arends" Relationship="Self.FK__Arends__ID_devis__3B75D760" FromRole="Devises" ToRole="Arends" />
+        </EntityType>
+        <EntityType Name="Pays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_arend" Type="Int32" Nullable="false" />
+          <Property Name="Date_Pay" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Summ" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arends" Relationship="Self.FK__Pays__ID_arend__3E52440B" FromRole="Pays" ToRole="Arends" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Arends__Id_clien__3A81B327">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Arends" Type="Self.Arends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arends">
+              <PropertyRef Name="Id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Arends__ID_devis__3B75D760">
+          <End Role="Devises" Type="Self.Devises" Multiplicity="1" />
+          <End Role="Arends" Type="Self.Arends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Arends">
+              <PropertyRef Name="ID_devise" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pays__ID_arend__3E52440B">
+          <End Role="Arends" Type="Self.Arends" Multiplicity="1" />
+          <End Role="Pays" Type="Self.Pays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arends">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pays">
+              <PropertyRef Name="ID_arend" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Arends" EntityType="Self.Arends" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Devises" EntityType="Self.Devises" />
+          <EntitySet Name="Pays" EntityType="Self.Pays" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__Arends__Id_clien__3A81B327" Association="Self.FK__Arends__Id_clien__3A81B327">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Arends" EntitySet="Arends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Arends__ID_devis__3B75D760" Association="Self.FK__Arends__ID_devis__3B75D760">
+            <End Role="Devises" EntitySet="Devises" />
+            <End Role="Arends" EntitySet="Arends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pays__ID_arend__3E52440B" Association="Self.FK__Pays__ID_arend__3E52440B">
+            <End Role="Arends" EntitySet="Arends" />
+            <End Role="Pays" EntitySet="Pays" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище РакинБазаДанныхАрендаModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Arends">
+            <EntityTypeMapping TypeName="РакинБазаДанныхАрендаModel.Arends">
+              <MappingFragment StoreEntitySet="Arends">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_client" ColumnName="Id_client" />
+                <ScalarProperty Name="ID_devise" ColumnName="ID_devise" />
+                <ScalarProperty Name="Date_start" ColumnName="Date_start" />
+                <ScalarProperty Name="Date_end" ColumnName="Date_end" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="РакинБазаДанныхАрендаModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Client_Name" ColumnName="Client_Name" />
+                <ScalarProperty Name="Client_Surname" ColumnName="Client_Surname" />
+                <ScalarProperty Name="Client_Contakt" ColumnName="Client_Contakt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Devises">
+            <EntityTypeMapping TypeName="РакинБазаДанныхАрендаModel.Devises">
+              <MappingFragment StoreEntitySet="Devises">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Devise_Name" ColumnName="Devise_Name" />
+                <ScalarProperty Name="Devise_info" ColumnName="Devise_info" />
+                <ScalarProperty Name="Available_quantity" ColumnName="Available_quantity" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pays">
+            <EntityTypeMapping TypeName="РакинБазаДанныхАрендаModel.Pays">
+              <MappingFragment StoreEntitySet="Pays">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ID_arend" ColumnName="ID_arend" />
+                <ScalarProperty Name="Date_Pay" ColumnName="Date_Pay" />
+                <ScalarProperty Name="Summ" ColumnName="Summ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="РакинБазаДанныхАрендаModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

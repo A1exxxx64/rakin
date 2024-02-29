@@ -1,0 +1,24 @@
+﻿<Window x:Class="Ракин_Курсовая.AdminPays"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ракин_Курсовая"
+        mc:Ignorable="d"
+        Title="Оплаты" Height="450" Width="800">
+    <Grid Background="BlanchedAlmond">
+        <ListBox x:Name="PaysList" HorizontalAlignment="Left" Height="424" Margin="10,0,0,0" VerticalAlignment="Center" Width="259" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="PaysList_SelectionChanged"/>
+        <Button  Background="LightBlue" x:Name="bBack" Content="Назад" HorizontalAlignment="Left" Height="34" Margin="482,373,0,0" VerticalAlignment="Top" Width="90" Click="bBack_Click"/>
+        <Button  Background="LightGreen" x:Name="bSave" Content="Сохранить" HorizontalAlignment="Left" Height="34" Margin="310,272,0,0" VerticalAlignment="Top" Width="90" Click="bSave_Click"/>
+        <Button  Background="LightPink" x:Name="bDelete" Content="Удалить" HorizontalAlignment="Left" Height="34" Margin="310,317,0,0" VerticalAlignment="Top" Width="90" Click="bDelete_Click"/>
+        <Button  Background="LightBlue" x:Name="bClear" Content="Очистить" HorizontalAlignment="Left" Height="34" Margin="310,361,0,0" VerticalAlignment="Top" Width="90" Click="bClear_Click"/>
+        <ComboBox x:Name="cbArend" HorizontalAlignment="Left" Height="33" Margin="441,52,0,0" VerticalAlignment="Top" Width="131"/>
+        <DatePicker x:Name="dpPayDate" HorizontalAlignment="Left" Height="36" Margin="441,110,0,0" VerticalAlignment="Top" Width="131"/>
+        <TextBox MaxLength="7" x:Name="tbSumm" HorizontalAlignment="Left" Height="26" Margin="441,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+        <TextBox IsEnabled="False" x:Name="tbZapisi" HorizontalAlignment="Left" Height="26" Margin="672,381,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="101" />
+        <Label Content="Аренда" HorizontalAlignment="Left" Height="33" Margin="310,52,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="Дата оплаты" HorizontalAlignment="Left" Height="33" Margin="310,110,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="Сумма оплаты" HorizontalAlignment="Left" Height="33" Margin="310,160,0,0" VerticalAlignment="Top" Width="106"/>
+        <Label Content="Кол-во записей" HorizontalAlignment="Left" Height="33" Margin="667,321,0,0" VerticalAlignment="Top" Width="106"/>
+    </Grid>
+</Window>

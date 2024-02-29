@@ -1,0 +1,25 @@
+﻿<Window x:Class="Ракин_Курсовая.AdminUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ракин_Курсовая"
+        mc:Ignorable="d"
+        Title="Сотрудники" Height="450" Width="800">
+    <Grid Background="BlanchedAlmond">
+        <ListBox x:Name="UserList" HorizontalAlignment="Left" Height="424" VerticalAlignment="Top" Width="260" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="UserList_SelectionChanged"/>
+        <TextBox MaxLength="20" x:Name="tbLogin" HorizontalAlignment="Left" Height="40" Margin="436,37,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
+        <TextBox MaxLength="20" x:Name="tbPassword" HorizontalAlignment="Left" Height="40" Margin="436,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
+        <TextBox MaxLength="20" x:Name="tbRole" HorizontalAlignment="Left" Height="40" Margin="436,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
+        <Button  Background="LightPink" x:Name="bDelete" Content="Удалить" HorizontalAlignment="Left" Height="32" Margin="344,313,0,0" VerticalAlignment="Top" Width="86" Click="bDelete_Click"/>
+        <Button  Background="LightBlue" x:Name="bClear" Content="Очистить" HorizontalAlignment="Left" Height="32" Margin="344,364,0,0" VerticalAlignment="Top" Width="86" Click="bClear_Click"/>
+        <Button   Background="LightBlue" x:Name="bBack" Content="Назад" HorizontalAlignment="Left" Height="32" Margin="485,369,0,0" VerticalAlignment="Top" Width="86" Click="bBack_Click_1"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Height="36" Margin="298,41,0,0" VerticalAlignment="Top" Width="89"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Height="36" Margin="298,102,0,0" VerticalAlignment="Top" Width="89"/>
+        <Label Content="Роль" HorizontalAlignment="Left" Height="36" Margin="298,179,0,0" VerticalAlignment="Top" Width="89"/>
+        <Button  Background="LightGreen" x:Name="bSave" Content="Сохранить" HorizontalAlignment="Left" Height="32" Margin="344,263,0,0" VerticalAlignment="Top" Width="86" Click="bSave_Click"/>
+        <TextBox IsEnabled="False" x:Name="tbZapisi" HorizontalAlignment="Left" Height="40" Margin="674,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82"/>
+        <Label Content="Кол-во записей" HorizontalAlignment="Left" Height="36" Margin="670,293,0,0" VerticalAlignment="Top" Width="90"/>
+
+    </Grid>
+</Window>

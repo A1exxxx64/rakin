@@ -1,0 +1,22 @@
+﻿<Window x:Class="Ракин_Курсовая.UserPays"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ракин_Курсовая"
+        mc:Ignorable="d"
+        Title="Оплата" Height="450" Width="800">
+    <Grid Background="BlanchedAlmond">
+        <DataGrid  Name="dgPays" IsReadOnly="True" Grid.Row="0"  Margin="53,109,53,74" Background="White" AutoGenerateColumns="False">
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер оплаты" Binding="{Binding Id}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Аренда" Binding="{Binding Arends,StringFormat=\{0:dd.MM.yyyy\}}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата оплаты" Binding="{Binding Date_Pay, StringFormat=\{0:dd.MM.yyyy\}}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Сумма к оплате" Binding="{Binding Summ}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Background="LightBlue" x:Name="bBack" Content="Назад" HorizontalAlignment="Left" Height="29" Margin="609,381,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click"/>
+        <Button Background="LightGreen" Content="Печать" HorizontalAlignment="Left" Margin="471,381,0,0" VerticalAlignment="Top"  Height="29" Width="138" Click="Button_Click_1"  />
+    </Grid>
+</Window>
